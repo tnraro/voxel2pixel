@@ -1,4 +1,4 @@
-const randomModel = ((...a) => a[Math.random() * a.length | 0])("koko", "dai", "sphere");
+const randomModel = ((...a) => a[Math.random() * a.length | 0])("koko", "dai", "sphere", "room");
 const { default: model } = await import(`./${randomModel}.js`);
 
 const $canvas = document.querySelector('canvas');
@@ -61,7 +61,7 @@ function render() {
       data[index + 3] = 255;
     }
   }
-  rot += 0.1;
+  rot += 0.05;
   context.putImageData(imageData, 0, 0);
   canvasContext.imageSmoothingEnabled = false;
   canvasContext.clearRect(0, 0, width * 4, height * 4);
